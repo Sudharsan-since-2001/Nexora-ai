@@ -52,46 +52,46 @@ const Services = () => {
         {
             title: 'Conversion Rate',
             icon: Rocket,
-            color: 'purple',
+            color: 'yellow',
             description: 'Optimizing the user journey to maximize every visitor.',
             features: ['CRO Optimization', 'Landing Pages', 'User Experience'],
         },
     ];
 
-    const colorClasses: Record<ColorKey, { border: string; bg: string; text: string }> = {
-        pink: { border: 'border-[#F0ABFC]', bg: 'bg-[#F0ABFC]', text: 'text-pink-600' },
-        yellow: { border: 'border-[#FDE047]', bg: 'bg-[#FDE047]', text: 'text-yellow-600' },
-        cyan: { border: 'border-[#22D3EE]', bg: 'bg-[#22D3EE]', text: 'text-cyan-600' },
-        green: { border: 'border-[#4ADE80]', bg: 'bg-[#4ADE80]', text: 'text-green-600' },
-        orange: { border: 'border-[#FB923C]', bg: 'bg-[#FB923C]', text: 'text-orange-600' },
-        purple: { border: 'border-[#C084FC]', bg: 'bg-[#C084FC]', text: 'text-purple-600' },
+    const colorVars: Record<ColorKey, string> = {
+        pink: 'var(--accent-pink)',
+        yellow: 'var(--accent-yellow)',
+        cyan: 'var(--accent-cyan)',
+        green: 'var(--accent-green)',
+        orange: 'var(--accent-orange)',
+        purple: 'var(--accent-pink)',
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 py-32 px-6">
-            <div className="max-w-7xl mx-auto">
+        <div className="min-h-screen bg-primary py-32">
+            <div className="container mx-auto">
                 {/* Header Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-24"
+                    className="text-left mb-24"
                 >
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-100 text-cyan-700 font-bold text-sm mb-6 tracking-wide uppercase">
+                    <span className="section-label">
                         Drive Traffic & Revenue
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">
+                    <h1 className="text-6xl font-black mb-8 tracking-tight">
                         Marketing Services
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+                    <p className="text-xl text-slate-600 max-w-2xl leading-relaxed font-bold">
                         Traditional marketing powered by data. We use battle-tested strategies to grow your digital footprint and scale your revenue.
                     </p>
                 </motion.div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="grid md-grid-cols-2 lg-grid-cols-3 gap-10">
                     {marketingServices.map((service, idx) => {
-                        const colors = colorClasses[service.color];
+                        const accentColor = colorVars[service.color];
                         const Icon = service.icon;
 
                         return (
@@ -100,45 +100,32 @@ const Services = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                whileHover={{ y: -10 }}
-                                className="group"
+                                className="brutalist-card flex flex-col"
+                                style={{ borderLeft: `12px solid ${accentColor}` }}
                             >
-                                <div className={`
-                  h-full relative rounded-[2.5rem] overflow-hidden
-                  border-8 ${colors.border}
-                  bg-white shadow-xl hover:shadow-2xl 
-                  transition-all duration-300 flex flex-col
-                `}>
-                                    {/* Icon & Title */}
-                                    <div className="p-10 pb-6 flex-1">
-                                        <div className={`w-16 h-16 ${colors.bg} rounded-2xl flex items-center justify-center mb-8 shadow-inner ring-4 ring-white`}>
-                                            <Icon className="w-8 h-8 text-slate-900" />
-                                        </div>
-
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">
-                                            {service.title}
-                                        </h3>
-
-                                        <p className="text-slate-600 font-medium leading-relaxed mb-8">
-                                            {service.description}
-                                        </p>
-
-                                        <ul className="space-y-4">
-                                            {service.features.map((feature, fIdx) => (
-                                                <li key={fIdx} className="flex items-center gap-3">
-                                                    <div className={`w-6 h-6 rounded-full ${colors.bg} flex items-center justify-center shrink-0`}>
-                                                        <CheckCircle2 className="w-4 h-4 text-slate-900" />
-                                                    </div>
-                                                    <span className="text-slate-700 font-bold text-sm">
-                                                        {feature}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                <div className="flex-1">
+                                    <div className="flex items-center justify-center border-black-3 mb-8" style={{ width: '64px', height: '64px', backgroundColor: accentColor }}>
+                                        <Icon size={32} className="text-black" />
                                     </div>
 
-                                    {/* Footer Decoration */}
-                                    <div className={`${colors.bg} h-3 mt-auto`} />
+                                    <h3 className="text-2xl font-black mb-4 tracking-tight uppercase">
+                                        {service.title}
+                                    </h3>
+
+                                    <p className="text-slate-600 font-bold leading-relaxed mb-8">
+                                        {service.description}
+                                    </p>
+
+                                    <ul className="space-y-4">
+                                        {service.features.map((feature, fIdx) => (
+                                            <li key={fIdx} className="flex items-center gap-3">
+                                                <CheckCircle2 size={18} style={{ color: accentColor }} strokeWidth={3} />
+                                                <span className="font-black text-sm uppercase tracking-widest text-slate-800">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </motion.div>
                         );
@@ -149,14 +136,13 @@ const Services = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="mt-32 text-center"
+                    className="mt-32"
                 >
-                    <div className="bg-slate-900 rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/10 rounded-full -mr-32 -mt-32 blur-3xl" />
-                        <div className="relative z-10">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Ready to scale your business?</h2>
-                            <button className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-cyan-400 transition-colors shadow-lg">
-                                GET A FREE AUDIT
+                    <div className="border-black-4 p-12 md:p-20 bg-black text-white shadow-brutalist-lg">
+                        <div className="max-w-3xl">
+                            <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter">Ready to scale your business?</h2>
+                            <button className="brutalist-btn bg-yellow text-black border-none" style={{ backgroundColor: 'var(--accent-yellow)', padding: '24px 48px' }}>
+                                <span className="text-xl font-black uppercase tracking-widest">GET A FREE AUDIT</span>
                             </button>
                         </div>
                     </div>

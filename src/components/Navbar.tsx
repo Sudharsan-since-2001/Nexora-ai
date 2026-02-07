@@ -15,28 +15,33 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 py-6">
-      <div className="container">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-2xl font-bold">
-            <div className="w-8 h-8 bg-cyan-400 border-2 border-black rounded flex items-center justify-center">N</div>
-            <span>nexora</span>
+    <nav className="fixed top-8 left-0 w-full z-50 px-4 md:px-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="bg-white border-black-4 shadow-brutalist flex items-center justify-between p-6 rounded-2xl">
+          <Link to="/" className="flex items-center gap-3">
+            <span className="text-3xl font-black bg-black text-white px-3 py-1 rounded-lg">N</span>
+            <span className="text-2xl font-black tracking-tighter uppercase italic">nexora</span>
           </Link>
 
-          <div className="flex items-center" style={{ gap: '3rem' }}>
-            <div className="hidden lg:flex items-center" style={{ gap: '3rem' }}>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`font-semibold text-sm transition-colors whitespace-nowrap ${location.pathname === link.path ? 'text-black underline' : 'text-slate-600'
-                    }`}
-                  style={{ padding: '0 1rem' }}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
+          <div className="hidden lg-flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`px-4 py-2 text-sm font-black uppercase tracking-widest transition-all rounded-xl ${location.pathname === link.path
+                  ? 'bg-black text-white'
+                  : 'text-black hover:bg-slate-100'
+                  }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="block lg:hidden">
+            <button className="brutalist-btn bg-yellow-400 p-2">
+              <span className="font-black text-xs">MENU</span>
+            </button>
           </div>
         </div>
       </div>

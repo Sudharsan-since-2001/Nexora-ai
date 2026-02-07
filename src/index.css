@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #f8f6f0;
+  --bg-primary: #fbfaf7;
   /* Cream background */
   --text-dark: #1a1a1a;
-  --accent-yellow: #ffde59;
+  --accent-yellow: #ffd100;
   --accent-pink: #ff91fb;
   --accent-cyan: #39e3fb;
   --accent-green: #90f38b;
   --accent-orange: #ffbd59;
+  --accent-purple: #c084fc;
+  --border-black: 4px solid #000000;
   --border-thick: 3px solid #000000;
-  --shadow-brutalist: 6px 6px 0px 0px #000000;
+  --shadow-brutalist: 8px 8px 0px 0px #000000;
+  --shadow-brutalist-lg: 12px 12px 0px 0px #000000;
   --font-main: 'Space Grotesk', sans-serif;
 }
+
 
 * {
   margin: 0;
@@ -57,6 +61,14 @@ a {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .gap-2 {
@@ -108,10 +120,9 @@ a {
 }
 
 .container {
-  max-width: 1800px;
-  /* Expands the layout significantly */
+  width: 100%;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 5%;
 }
 
 nav.fixed {
@@ -136,7 +147,11 @@ nav.fixed {
 }
 
 .pt-32 {
-  padding-top: 6rem;
+  padding-top: 8rem;
+}
+
+.pt-40 {
+  padding-top: 10rem;
 }
 
 .pb-20 {
@@ -151,6 +166,260 @@ nav.fixed {
   margin-bottom: 4rem;
 }
 
+.mb-24 {
+  margin-bottom: 6rem;
+}
+
+.mb-32 {
+  margin-bottom: 8rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-32 {
+  margin-top: 8rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.block {
+  display: block;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .md-grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .md-grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg-grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg-grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .lg-flex {
+    display: flex;
+  }
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-4xl {
+  max-width: 896px;
+}
+
+.max-w-2xl {
+  max-width: 672px;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-12 {
+  padding: 3rem;
+}
+
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.space-y-6>*+* {
+  margin-top: 1.5rem;
+}
+
+.space-y-10>*+* {
+  margin-top: 2.5rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+}
+
+.text-8xl {
+  font-size: 6rem;
+}
+
+.text-slate-500 {
+  color: #64748b;
+}
+
+.text-slate-400 {
+  color: #94a3b8;
+}
+
+.text-slate-600 {
+  color: #475569;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.border-black-4 {
+  border: var(--border-black);
+}
+
+.border-black-3 {
+  border: var(--border-thick);
+}
+
+.shadow-brutalist {
+  box-shadow: var(--shadow-brutalist);
+}
+
+.shadow-brutalist-lg {
+  box-shadow: var(--shadow-brutalist-lg);
+}
+
 /* Brutalist Components */
 .brutalist-card {
   background: white;
@@ -162,8 +431,16 @@ nav.fixed {
 }
 
 .brutalist-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 10px 10px 0px 0px #000000;
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px 0px #000000;
+}
+
+.shadow-brutalist-lg {
+  box-shadow: 12px 12px 0px 0px #000000;
+}
+
+.shadow-brutalist-sm {
+  box-shadow: 8px 8px 0px 0px #000000;
 }
 
 .brutalist-btn {
@@ -202,10 +479,10 @@ nav.fixed {
 
 /* Typography */
 h1 {
-  font-size: clamp(3rem, 10vw, 5rem);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -2px;
+  font-size: clamp(3.5rem, 12vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -3px;
 }
 
 h2 {
